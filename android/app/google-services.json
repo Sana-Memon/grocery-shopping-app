@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "996684082573",
+    "project_id": "vegi-a1e67",
+    "storage_bucket": "vegi-a1e67.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996684082573:android:be4996a96b5405700b21c4",
+        "android_client_info": {
+          "package_name": "com.example.shoppingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "996684082573-g75v1gajsatjujc8vlmlq7rfcr6j6518.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shoppingapp",
+            "certificate_hash": "70f635313a9b86c890753d7c4b3cc87206670d64"
+          }
+        },
+        {
+          "client_id": "996684082573-gsspsko8djqudr07p2le39joojnlkt7u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3lVpRhG9QQ_1S-lJdCkv6i_F5niuN0Bk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "996684082573-06l7gg6g3v8470c916isvi1mqfdpmnmt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
