@@ -1,8 +1,14 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:shoppingapp/custom_Widgets/app_bar.dart';
+import 'package:shoppingapp/single_product.dart';
 import 'package:shoppingapp/utils/constants/colors.dart';
 import 'package:shoppingapp/utils/constants/images.dart';
+
+import 'custom_Widgets/drawer.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -16,8 +22,8 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: screenbgColor,
-        drawer: Drawer(),
-        appBar: homeAppbar(),
+        drawer: myCustomDrawer(),
+        appBar: homeAppbar("Home"),
         body: (ListView(
           children: [
             bannerSection(),
@@ -26,12 +32,36 @@ class _HomeState extends State<Home> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  singleProduct(),
-                  singleProduct(),
-                  singleProduct(),
-                  singleProduct(),
-                  singleProduct(),
-                  singleProduct()
+                  singleProduct(
+                      title: "Basil Leaves",
+                      unit: "50 PKR/50 GM",
+                      weight: "50 gm",
+                      img: basil,
+                      context: context),
+                  singleProduct(
+                      title: "Basil Leaves",
+                      unit: "50 PKR/50 GM",
+                      weight: "50 gm",
+                      img: basil,
+                      context: context),
+                  singleProduct(
+                      title: "Basil Leaves",
+                      unit: "50 PKR/50 GM",
+                      weight: "50 gm",
+                      img: basil,
+                      context: context),
+                  singleProduct(
+                      title: "Basil Leaves",
+                      unit: "50 PKR/50 GM",
+                      weight: "50 gm",
+                      img: basil,
+                      context: context),
+                  singleProduct(
+                      title: "Basil Leaves",
+                      unit: "50 PKR/50 GM",
+                      weight: "50 gm",
+                      img: basil,
+                      context: context),
                 ],
               ),
             ),
@@ -40,12 +70,36 @@ class _HomeState extends State<Home> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  singleProduct(),
-                  singleProduct(),
-                  singleProduct(),
-                  singleProduct(),
-                  singleProduct(),
-                  singleProduct()
+                  singleProduct(
+                      title: "Basil Leaves",
+                      unit: "50 PKR/50 GM",
+                      weight: "50 gm",
+                      img: basil,
+                      context: context),
+                  singleProduct(
+                      title: "Basil Leaves",
+                      unit: "50 PKR/50 GM",
+                      weight: "50 gm",
+                      img: basil,
+                      context: context),
+                  singleProduct(
+                      title: "Basil Leaves",
+                      unit: "50 PKR/50 GM",
+                      weight: "50 gm",
+                      img: basil,
+                      context: context),
+                  singleProduct(
+                      title: "Basil Leaves",
+                      unit: "50 PKR/50 GM",
+                      weight: "50 gm",
+                      img: basil,
+                      context: context),
+                  singleProduct(
+                      title: "Basil Leaves",
+                      unit: "50 PKR/50 GM",
+                      weight: "50 gm",
+                      img: basil,
+                      context: context),
                 ],
               ),
             ),
@@ -137,119 +191,99 @@ bannerSection() {
   );
 }
 
-homeAppbar() {
-  return AppBar(
-    iconTheme: (IconThemeData(color: black)),
-    backgroundColor: yellow,
-    title: Text(
-      "Home",
-      style: TextStyle(color: black),
-    ),
-    actions: [
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: CircleAvatar(
-          backgroundColor: lightYellow,
-          child: Icon(
-            Icons.search,
-            color: black,
-          ),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: CircleAvatar(
-          backgroundColor: lightYellow,
-          child: Icon(
-            Icons.shop,
-            color: black,
-          ),
-        ),
-      )
-    ],
-  );
-}
-
-singleProduct() {
+singleProduct(
+    {required String title,
+    required String unit,
+    required String weight,
+    required String img,
+    context}) {
   return Padding(
     padding: const EdgeInsets.all(15),
     child: Row(
       children: [
-        Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12), color: white),
-            height: 230,
-            width: 130,
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(children: [
-                Expanded(flex: 2, child: Container(child: Image.asset(basil))),
-                Expanded(
-                    child: Column(
-                  children: [
-                    Text(
-                      "Fresh Basil",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                    ),
-                    Text(
-                      "50 PKR/50 GM",
-                      style: TextStyle(fontSize: 12),
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                            child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: grey),
+        GestureDetector(
+          onTap: (() {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SingleProduct()),
+            );
+          }),
+          child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12), color: white),
+              height: 230,
+              width: 130,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Column(children: [
+                  Expanded(flex: 2, child: Container(child: Image.asset(img))),
+                  Expanded(
+                      child: Column(
+                    children: [
+                      Text(
+                        title,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                      Text(
+                        unit,
+                        style: TextStyle(fontSize: 12),
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                              child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: grey),
+                            ),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    weight,
+                                    style: TextStyle(fontSize: 12),
+                                  ),
+                                  Icon(
+                                    Icons.arrow_drop_down,
+                                    size: 17,
+                                  )
+                                ]),
+                            height: 24,
+                          )),
+                          SizedBox(
+                            width: 4,
                           ),
-                          child: Row(
+                          Expanded(
+                              child: Container(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
+                                Icon(
+                                  Icons.remove,
+                                  size: 17,
+                                ),
                                 Text(
-                                  "50 gm",
+                                  "1",
                                   style: TextStyle(fontSize: 12),
                                 ),
                                 Icon(
-                                  Icons.arrow_drop_down,
+                                  Icons.add,
                                   size: 17,
-                                )
-                              ]),
-                          height: 24,
-                        )),
-                        SizedBox(
-                          width: 4,
-                        ),
-                        Expanded(
-                            child: Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.remove,
-                                size: 17,
-                              ),
-                              Text(
-                                "1",
-                                style: TextStyle(fontSize: 12),
-                              ),
-                              Icon(
-                                Icons.add,
-                                size: 17,
-                              ),
-                            ],
-                          ),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: grey),
-                          ),
-                          height: 24,
-                        )),
-                      ],
-                    )
-                  ],
-                ))
-              ]),
-            ))
+                                ),
+                              ],
+                            ),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: grey),
+                            ),
+                            height: 24,
+                          )),
+                        ],
+                      )
+                    ],
+                  ))
+                ]),
+              )),
+        )
       ],
     ),
   );
