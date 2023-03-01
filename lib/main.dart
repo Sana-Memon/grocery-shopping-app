@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:shoppingapp/firebase_options.dart';
 import 'package:shoppingapp/home.dart';
 import 'package:shoppingapp/sign_In.dart';
+import 'package:shoppingapp/single_product.dart';
+import 'package:shoppingapp/utils/constants/images.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +20,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Home());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Home()
+        // SingleProduct(
+        //   ProductImg: basil,
+        //   ProductName: 'bavhgchmsil',
+        // )
+        );
   }
 }

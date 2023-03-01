@@ -33,19 +33,19 @@ class _HomeState extends State<Home> {
               child: Row(
                 children: [
                   singleProduct(
-                      title: "Basil Leaves",
+                      title: "Basil Leaves1",
                       unit: "50 PKR/50 GM",
                       weight: "50 gm",
                       img: basil,
                       context: context),
                   singleProduct(
-                      title: "Basil Leaves",
+                      title: "Basil Leaves2",
                       unit: "50 PKR/50 GM",
                       weight: "50 gm",
                       img: basil,
                       context: context),
                   singleProduct(
-                      title: "Basil Leaves",
+                      title: "Basil Leaves3",
                       unit: "50 PKR/50 GM",
                       weight: "50 gm",
                       img: basil,
@@ -71,19 +71,19 @@ class _HomeState extends State<Home> {
               child: Row(
                 children: [
                   singleProduct(
-                      title: "Basil Leaves",
+                      title: "Basil Leaves 5",
                       unit: "50 PKR/50 GM",
                       weight: "50 gm",
                       img: basil,
                       context: context),
                   singleProduct(
-                      title: "Basil Leaves",
+                      title: "Basil Leaves 6",
                       unit: "50 PKR/50 GM",
                       weight: "50 gm",
                       img: basil,
                       context: context),
                   singleProduct(
-                      title: "Basil Leaves",
+                      title: "Basil Leaves 7",
                       unit: "50 PKR/50 GM",
                       weight: "50 gm",
                       img: basil,
@@ -205,7 +205,9 @@ singleProduct(
           onTap: (() {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const SingleProduct()),
+              MaterialPageRoute(
+                  builder: (context) =>
+                      SingleProduct(ProductName: title, ProductImg: img)),
             );
           }),
           child: Container(
