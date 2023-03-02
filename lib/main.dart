@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:shoppingapp/firebase_options.dart';
 import 'package:shoppingapp/home.dart';
+import 'package:shoppingapp/my_profile.dart';
 import 'package:shoppingapp/sign_In.dart';
 import 'package:shoppingapp/single_product.dart';
 import 'package:shoppingapp/utils/constants/images.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Home()
+    return MaterialApp(debugShowCheckedModeBanner: false, home: MyProfile()
         // SingleProduct(
         //   ProductImg: basil,
         //   ProductName: 'bavhgchmsil',
