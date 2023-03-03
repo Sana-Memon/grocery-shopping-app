@@ -54,8 +54,12 @@ myCustomDrawer() {
   ));
 }
 
-drawerList({required String myTitle, required IconData myIcon}) {
+drawerList(
+    {required String myTitle, required IconData myIcon, Function? onTap}) {
   return ListTile(
+    onTap: () {
+      onTap;
+    },
     leading: Icon(
       myIcon,
     ),
