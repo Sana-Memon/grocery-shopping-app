@@ -20,12 +20,29 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    bool _switchValue = false;
     return Scaffold(
-        backgroundColor: screenbgColor,
         drawer: myCustomDrawer(),
         appBar: homeAppbar("Home"),
         body: (ListView(
           children: [
+            Padding(
+              padding: EdgeInsets.only(left: 15.0, top: 6),
+              child: Row(
+                children: [
+                  Text("Switch Theme"),
+                  Switch(
+                      focusColor: white,
+                      activeColor: black,
+                      value: _switchValue,
+                      onChanged: (newValue) {
+                        setState(() {
+                          _switchValue = newValue;
+                        });
+                      }),
+                ],
+              ),
+            ),
             bannerSection(),
             newSectionHeading(),
             SingleChildScrollView(
@@ -212,7 +229,9 @@ singleProduct(
           }),
           child: Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12), color: white),
+                borderRadius: BorderRadius.circular(12),
+                color: screenbgColor,
+              ),
               height: 230,
               width: 130,
               child: Padding(
@@ -225,7 +244,9 @@ singleProduct(
                       Text(
                         title,
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
                       ),
                       Text(
                         unit,

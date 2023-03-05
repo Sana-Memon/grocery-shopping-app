@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../utils/constants/colors.dart';
 
 homeAppbar(String title) {
+  bool _switchValue = true;
   return AppBar(
     iconTheme: (IconThemeData(color: black)),
     backgroundColor: yellow,
