@@ -4,13 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:shoppingapp/custom_Widgets/app_bar.dart';
+import 'package:shoppingapp/main.dart';
 import 'package:shoppingapp/single_product.dart';
+import 'package:shoppingapp/theme.dart';
 import 'package:shoppingapp/utils/constants/colors.dart';
 import 'package:shoppingapp/utils/constants/images.dart';
 
 import 'custom_Widgets/drawer.dart';
 
 class Home extends StatefulWidget {
+  static bool themeModeValue = false;
+
   const Home({super.key});
 
   @override
@@ -18,110 +22,130 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  themeToggle() {
+    theme:
+    ThemeData.light();
+    darkTheme:
+    ThemeData.dark();
+    themeMode:
+    Home.themeModeValue == false ? ThemeMode.light : ThemeMode.dark;
+  }
+
+  void initState() {}
   @override
   Widget build(BuildContext context) {
-    bool _switchValue = false;
-    return Scaffold(
-        drawer: myCustomDrawer(),
-        appBar: homeAppbar("Home"),
-        body: (ListView(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 15.0, top: 6),
-              child: Row(
-                children: [
-                  Text("Switch Theme"),
-                  Switch(
-                      focusColor: white,
-                      activeColor: black,
-                      value: _switchValue,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _switchValue = newValue;
-                        });
-                      }),
-                ],
-              ),
-            ),
-            bannerSection(),
-            newSectionHeading(),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  singleProduct(
-                      title: "Basil Leaves1",
-                      unit: "50 PKR/50 GM",
-                      weight: "50 gm",
-                      img: basil,
-                      context: context),
-                  singleProduct(
-                      title: "Basil Leaves2",
-                      unit: "50 PKR/50 GM",
-                      weight: "50 gm",
-                      img: basil,
-                      context: context),
-                  singleProduct(
-                      title: "Basil Leaves3",
-                      unit: "50 PKR/50 GM",
-                      weight: "50 gm",
-                      img: basil,
-                      context: context),
-                  singleProduct(
-                      title: "Basil Leaves",
-                      unit: "50 PKR/50 GM",
-                      weight: "50 gm",
-                      img: basil,
-                      context: context),
-                  singleProduct(
-                      title: "Basil Leaves",
-                      unit: "50 PKR/50 GM",
-                      weight: "50 gm",
-                      img: basil,
-                      context: context),
-                ],
-              ),
-            ),
-            newSectionHeading(),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  singleProduct(
-                      title: "Basil Leaves 5",
-                      unit: "50 PKR/50 GM",
-                      weight: "50 gm",
-                      img: basil,
-                      context: context),
-                  singleProduct(
-                      title: "Basil Leaves 6",
-                      unit: "50 PKR/50 GM",
-                      weight: "50 gm",
-                      img: basil,
-                      context: context),
-                  singleProduct(
-                      title: "Basil Leaves 7",
-                      unit: "50 PKR/50 GM",
-                      weight: "50 gm",
-                      img: basil,
-                      context: context),
-                  singleProduct(
-                      title: "Basil Leaves",
-                      unit: "50 PKR/50 GM",
-                      weight: "50 gm",
-                      img: basil,
-                      context: context),
-                  singleProduct(
-                      title: "Basil Leaves",
-                      unit: "50 PKR/50 GM",
-                      weight: "50 gm",
-                      img: basil,
-                      context: context),
-                ],
-              ),
-            ),
-          ],
-        )));
+    return Theme(
+        data: AppTheme.currentTheme,
+        child: Scaffold(
+            drawer: myCustomDrawer(),
+            appBar: homeAppbar("Home"),
+            body: (ListView(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 15.0, top: 6),
+                  child: Row(
+                    children: [
+                      Text("Switch Theme"),
+                      Switch(
+                          focusColor: white,
+                          activeColor: black,
+                          value: AppTheme.currentTheme == AppTheme.darkTheme,
+                          onChanged: (value) {
+                            setState(() {
+                              if (value) {
+                                print(value);
+                                AppTheme.currentTheme = AppTheme.darkTheme;
+                                print(AppTheme.currentTheme);
+                              } else {
+                                print(value);
+
+                                AppTheme.currentTheme = AppTheme.lightTheme;
+                                print(AppTheme.currentTheme);
+                              }
+                            });
+                          }),
+                    ],
+                  ),
+                ),
+                bannerSection(),
+                newSectionHeading(),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      singleProduct(
+                          title: "Basil Leaves1",
+                          unit: "50 PKR/50 GM",
+                          weight: "50 gm",
+                          img: basil,
+                          context: context),
+                      singleProduct(
+                          title: "Basil Leaves2",
+                          unit: "50 PKR/50 GM",
+                          weight: "50 gm",
+                          img: basil,
+                          context: context),
+                      singleProduct(
+                          title: "Basil Leaves3",
+                          unit: "50 PKR/50 GM",
+                          weight: "50 gm",
+                          img: basil,
+                          context: context),
+                      singleProduct(
+                          title: "Basil Leaves",
+                          unit: "50 PKR/50 GM",
+                          weight: "50 gm",
+                          img: basil,
+                          context: context),
+                      singleProduct(
+                          title: "Basil Leaves",
+                          unit: "50 PKR/50 GM",
+                          weight: "50 gm",
+                          img: basil,
+                          context: context),
+                    ],
+                  ),
+                ),
+                newSectionHeading(),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      singleProduct(
+                          title: "Basil Leaves 5",
+                          unit: "50 PKR/50 GM",
+                          weight: "50 gm",
+                          img: basil,
+                          context: context),
+                      singleProduct(
+                          title: "Basil Leaves 6",
+                          unit: "50 PKR/50 GM",
+                          weight: "50 gm",
+                          img: basil,
+                          context: context),
+                      singleProduct(
+                          title: "Basil Leaves 7",
+                          unit: "50 PKR/50 GM",
+                          weight: "50 gm",
+                          img: basil,
+                          context: context),
+                      singleProduct(
+                          title: "Basil Leaves",
+                          unit: "50 PKR/50 GM",
+                          weight: "50 gm",
+                          img: basil,
+                          context: context),
+                      singleProduct(
+                          title: "Basil Leaves",
+                          unit: "50 PKR/50 GM",
+                          weight: "50 gm",
+                          img: basil,
+                          context: context),
+                    ],
+                  ),
+                ),
+              ],
+            ))));
   }
 }
 

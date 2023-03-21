@@ -6,6 +6,7 @@ import 'package:shoppingapp/home.dart';
 import 'package:shoppingapp/my_profile.dart';
 import 'package:shoppingapp/sign_In.dart';
 import 'package:shoppingapp/single_product.dart';
+import 'package:shoppingapp/theme.dart';
 import 'package:shoppingapp/utils/constants/images.dart';
 
 void main() async {
@@ -21,11 +22,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: SignIn()
-        // SingleProduct(
-        //   ProductImg: basil,
-        //   ProductName: 'bavhgchmsil',
-        // )
-        );
+    return MaterialApp(
+        theme: AppTheme.currentTheme,
+        debugShowCheckedModeBanner: false,
+        home: Theme(data: AppTheme.currentTheme, child: SignIn()));
   }
 }
